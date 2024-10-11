@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <link rel="stylesheet" href="assets/css/estilo.css">
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="assets/img/logo.avif" alt="Logo">
+        <nav>
+            <div class="div1">
+                <p>Calcule aqui seu índice de massa corporal!</p>
+            </div>
+        </nav>
+    </header>
+    <main>   
+        <section class="s1">
+            <h1>Índice de Massa Corporal (IMC)</h1>
+        </section>    
+            
+        <section>
+            <h3 class="tit2">Como funciona</h3>
+            <p>O Índice de Massa Corporal é uma medida que 
+                relaciona o peso e a altura de uma pessoa, utilizado como uma ferramenta simples 
+                para identificar possíveis problemas de peso em 
+                adultos, como sobrepeso ou obesidade.O IMC fornece uma estimativa da gordura corporal 
+                de uma pessoa e ajuda a avaliar se o peso está 
+                entro de faixas consideradas saudáveis.</p>
+        </section>
+
+        <br><br>
+        <center>
+        <section class="calc">
+            <div class="butca">
+                <h2 class="h2calc">Calculadora de IMC</h2>
+                    <div class="form-control">
+                        <input class="input input-alt" placeholder="Peso (kg)" step="0.1" type="number" id="peso" name="peso">
+                        <span class="input-border input-border-alt"></span>
+                    </div>
+
+                    <div class="form-control">
+                        <input class="input input-alt" placeholder="Altura (m)" step="0.01" type="number" id="altura" name="altura">
+                        <span class="input-border input-border-alt"></span>
+                    </div><br><br>
+
+                    <button class="botcal" id="botcal" type="submit">Calcular IMC</button><br><br>
+
+                    <h2 class="resultado" id="resultado"></h2>
+            </div>
+        <script>
+                function exibirIMC() {
+                    var inputPeso = parseFloat(document.getElementById("peso").value) //valor pode ser quebrado
+                    var inputAltura = parseFloat(document.getElementById("altura").value)//valor pode ser quebrado
+                    var resultado = document.getElementById("resultado") //variavel para o resultado
+                    var imc = (inputPeso / (inputAltura * inputAltura)) //calculo do imc
+                    /* condições */ 
+                    if (imc < 18.5) { 
+                        resultado.textContent = 'Abaixo do peso.'
+                    } 
+                    else if (imc >= 18.5 && imc <= 24.9) {
+                        resultado.textContent = 'Peso normal.'
+                    }
+                    else if (imc >= 25 && imc <= 29.9) {
+                        resultado.textContent = 'Sobrepeso.'
+                    } else {
+                        resultado.textContent = 'Obesidade.'
+                    }
+                    }
+        
+                var botao = document.getElementById("botcal")
+                botao.addEventListener('click', exibirIMC) //2 passos: um ação e outro reação
+        </script>    
+        </section>
+        </center>
+        <br></br>
+        <section class="s2">
+            <h2 class="tit2">Tabela de IMC</h2>
+            <div class="imag">
+                <img src="assets/img/tabela.jpg" alt="Tabela de IMC" width="700px">
+            </div>
+        </section>
+    </main>
+    <!-- INÍCIO DO RODAPÉ -->
+    <footer>
+       <p class="p3">© 2024. Todos os direitos reservados.</p>
+    </footer>
+    <!-- FIM DO RODAPÉ -->
+</body>
+
+</html>
